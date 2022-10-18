@@ -1,0 +1,30 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+h1 {
+  padding-left: 0 !important;
+}

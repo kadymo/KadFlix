@@ -1,0 +1,74 @@
+@mixin responsive($d) {
+  @if $d == "small" {
+    @media (max-width: 500px) {
+      @content;
+    }
+  } @else if $d == "medium" {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+}
+
+@mixin containerDetails {
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 40px;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 40px;
+  margin-bottom: 30px;
+  @include responsive("medium") {
+    grid-template-columns: 1fr;
+    width: 100vw;
+    height: 100vh;
+    font-weight: 300;
+    padding: 0 20px;
+  }
+}
+
+@mixin title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 0.5;
+  color: #fff;
+  &::after {
+    content: ".";
+    width: 4px;
+    height: 100%;
+    font-size: 4rem;
+    color: #84e;
+    margin-left: 0px;
+  }
+
+  @include responsive("small") {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin scrollbar($mr, $mrs) {
+  &:hover::-webkit-scrollbar-thumb {
+    display: initial;
+  }
+  &::-webkit-scrollbar-track {
+    background: #1d1d22;
+    margin-right: $mr;
+  }
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #84e, #5f33a1);
+    border-radius: 50px;
+    display: none;
+  }
+  @include responsive("small") {
+    &::-webkit-scrollbar-track {
+      margin-right: $mrs;
+    }
+  }
+}
+
