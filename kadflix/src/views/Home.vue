@@ -35,6 +35,10 @@
         <h1>Filmes de guerra</h1>
       </MoviesList>
 
+      <MoviesList fetchFilter="with_genres=80">
+        <h1>Filmes policiais</h1>
+      </MoviesList>
+
       <MoviesList fetchFilter="with_genres=27">
         <h1>Filmes de terror</h1>
       </MoviesList>
