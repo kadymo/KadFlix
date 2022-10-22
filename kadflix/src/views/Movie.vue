@@ -184,7 +184,7 @@ export default {
 
     fetchMovieTrailer() {
       fetch(
-        `https://api.themoviedb.org/3/movie/${this.movie_id}/videos?api_key=37823c25fd81a1efa9124efeb53be3a8`
+        `https://api.themoviedb.org/3/movie/${this.movie_id}/videos?api_key=37823c25fd81a1efa9124efeb53be3a8&lan=en-US`
       )
         .then((r) => r.json())
         .then((r) => {
