@@ -25,4 +25,5 @@ KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e 
 | [Vue Router](https://router.vuejs.org/) | Biblioteca oficial de roteamento para Vue.js |
 | [Vuex](https://vuex.vuejs.org/) | 	Biblioteca oficial para gerenciamento de estados globais no Vue.js |
 | [SASS (SCSS)](https://sass-lang.com/) |Pré-processador de CSS |
+| [Babel](https://babeljs.io/) |Compilador de JavaScript |
 | [Vercel](https://vercel.com/) | Plataforma para a hospedagem de sites estáticos |
