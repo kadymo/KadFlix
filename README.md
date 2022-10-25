@@ -1,5 +1,8 @@
 # KadFlix 🎥
 ![](https://i.imgur.com/2UPgC1z.png)
+<img src="https://user-images.githubusercontent.com/98963793/197876676-905597a2-fbbb-4568-89d6-eccf8b3ade0b.gif" width="100%"/>
+
+
 
 ## 🔛 Demo
 Você pode acessar o projeto por [este link](https://kadflix.vercel.app)
