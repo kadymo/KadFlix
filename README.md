@@ -5,7 +5,7 @@
 
 
 ## 🔛 Demo
-Você pode acessar o projeto por [este link](https://kadflix.vercel.app)
+O deploy da aplicação foi feito na plataforma de hospedagem Vercel. Acesse o projeto [neste link](https://kadflix.vercel.app)
 
 ## 📖 Sobre o projeto
 KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e seus artistas. Esse é o meu primeiro projeto pessoal utilizando o Vue.js, um dos mais famosos frameworks do ecossistema front-end para a construção de aplicações web modernas. Aprendi bastante e aprimorei minhas habilidades durante o desenvolvimento.
