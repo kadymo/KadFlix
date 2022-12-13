@@ -130,6 +130,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   grid-column: 2;
+  max-width: 600px;
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
@@ -200,7 +201,6 @@ export default {
     display: flex;
     overflow-x: auto;
     gap: 30px 15px;
-    width: 600px;
     padding: 20px 0;
     margin-bottom: 10px;
     @include responsive("small") {

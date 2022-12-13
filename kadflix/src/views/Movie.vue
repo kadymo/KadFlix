@@ -1,7 +1,7 @@
 <template>
   <main
     :style="{
-      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/w1280${movie.backdrop_path}') no-repeat no-repeat center center`,
+      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/w1280${movie.backdrop_path}') no-repeat no-repeat top center`,
     }"
     class="container"
     v-if="movie"
@@ -325,6 +325,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   grid-column: 2;
+  max-width: 600px;
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
@@ -387,7 +388,7 @@ export default {
 .movie_credits {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 100%;
 
   .credits {
     @include scrollbar(0, 0);
