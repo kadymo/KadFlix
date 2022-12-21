@@ -52,8 +52,7 @@
 <script>
 import { mapState } from "vuex";
 import MoviePreview from "@/components/MoviePreview.vue";
-import { averageColor } from "@/helpers.js";
-import { pageTitle } from "@/helpers.js";
+import { averageColor, pageTitle } from "@/helpers.js";
 import { dateFilter } from "@/filters.js";
 
 export default {

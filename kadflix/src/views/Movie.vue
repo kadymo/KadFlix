@@ -1,7 +1,7 @@
 <template>
   <main
     :style="{
-      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/w1280${movie.backdrop_path}') no-repeat no-repeat top center`,
+      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/${sizeBackdropImage}${movie.backdrop_path}') no-repeat no-repeat ${backdropPosition}`,
     }"
     class="container"
     v-if="movie"
@@ -126,6 +126,13 @@ export default {
 
   computed: {
     ...mapState(["api_images"]),
+    sizeBackdropImage() {
+      return window.innerWidth <= 1280 ? "w1280" : "original";
+    },
+
+    backdropPosition() {
+      return window.innerWidth <= 1280 ? "top" : "center";
+    },
 
     styleVoteAverage() {
       const average = this.movie.vote_average;
@@ -325,7 +332,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   grid-column: 2;
-  max-width: 600px;
+  max-width: 700px;
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
