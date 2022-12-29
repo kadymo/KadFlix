@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   computed: {
@@ -14,7 +14,7 @@ export default {
 
   created() {
     if (localStorage.favoriteMovies) {
-      this.UPDATE_LS(JSON.parse(localStorage.favoriteMovies));
+      this.$store.commit("UPDATE_LS", JSON.parse(localStorage.favoriteMovies));
     }
   },
 
@@ -22,10 +22,6 @@ export default {
     favorite_movies() {
       localStorage.favoriteMovies = JSON.stringify(this.favorite_movies);
     },
-  },
-
-  methods: {
-    ...mapMutations(["UPDATE_LS"]),
   },
 };
 </script>

@@ -29,7 +29,7 @@
 
         <div class="info_item">
           <p>Data de nascimento</p>
-          <span>{{ actor.birthday | dateFilter }}</span>
+          <span>{{ actor.birthday | dateFilter("long") }}</span>
         </div>
 
         <div class="info_item">
@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import MoviePreview from "@/components/MoviePreview.vue";
-import { averageColor, pageTitle } from "@/helpers.js";
+import pageTitle from "@/utils/pageTitle.js";
+import averageColor from "@/utils/averageColor.js";
 import { dateFilter } from "@/filters.js";
 
 export default {
@@ -73,11 +73,8 @@ export default {
   data() {
     return {
       actor: null,
+      api_images: this.$store.state.api_images,
     };
-  },
-
-  computed: {
-    ...mapState(["api_images"]),
   },
 
   methods: {

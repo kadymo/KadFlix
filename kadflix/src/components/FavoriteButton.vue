@@ -23,12 +23,15 @@ import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "FavoriteButton",
-
   props: ["movie"],
+  
+  data() {
+    return {
+      favorite_movies: this.$store.state.favorite_movies
+    }
+  },
 
   computed: {
-    ...mapState(["favorite_movies"]),
-
     titleFavoriteButton() {
       return this.isFavorited
         ? "Remover dos favoritos"

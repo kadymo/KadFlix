@@ -8,7 +8,7 @@
       <input
         type="text"
         placeholder="Pesquisar filmes"
-        v-model="search_movie"
+        v-model="searched_movie"
       />
       <SearchSugestions />
     </div>
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
 import SearchSugestions from "@/components/SearchSugestions.vue";
 
 export default {
@@ -41,18 +40,14 @@ export default {
   },
 
   computed: {
-    search_movie: {
+    searched_movie: {
       get() {
-        return this.movie_search;
+        return "";
       },
       set(value) {
-        this.fetchSearchMovies(value);
+        this.$store.dispatch("fetchSearchedMovies", value);
       },
     },
-  },
-
-  methods: {
-    ...mapActions(["fetchSearchMovies"]),
   },
 };
 </script>

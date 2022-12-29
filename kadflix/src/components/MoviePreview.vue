@@ -8,7 +8,7 @@
     <img :src="api_images + 'w342/' + movie.poster_path" :alt="movie.title" />
 
     <div class="movie_details">
-      <span>{{ movie.release_date | dateFilter }}</span>
+      <span>{{ movie.release_date | dateFilter("short") }}</span>
       <h3>{{ movie.title }}</h3>
     </div>
 
@@ -21,10 +21,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import FavoriteButton from "@/components/FavoriteButton.vue";
 import { dateFilter, voteAverageFilter } from "@/filters.js";
-import { averageColor } from "@/helpers.js";
+import averageColor from "@/utils/averageColor.js";
 
 export default {
   name: "MoviePreview",
@@ -40,8 +39,10 @@ export default {
 
   props: ["movie"],
 
-  computed: {
-    ...mapState(["api_images"]),
+  data() {
+    return {
+      api_images: this.$store.state.api_images,
+    };
   },
 
   mounted() {
