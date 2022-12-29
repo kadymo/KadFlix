@@ -3,7 +3,10 @@
     v-if="actor"
     class="container"
     :style="{
-      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/w1280${actor.profile_path}') no-repeat no-repeat center `,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/original${actor.profile_path}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
     }"
   >
     <div class="actor_path">

@@ -1,7 +1,10 @@
 <template>
   <main
     :style="{
-      background: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/${sizeBackdropImage}${movie.backdrop_path}') no-repeat no-repeat ${backdropPosition}`,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
     }"
     class="container"
     v-if="movie"
@@ -126,13 +129,6 @@ export default {
 
   computed: {
     ...mapState(["api_images"]),
-    sizeBackdropImage() {
-      return window.innerWidth <= 1280 ? "w1280" : "original";
-    },
-
-    backdropPosition() {
-      return window.innerWidth <= 1280 ? "top" : "center";
-    },
 
     styleVoteAverage() {
       const average = this.movie.vote_average;
