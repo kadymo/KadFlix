@@ -12,12 +12,12 @@
     <div class="movie_path">
       <img :src="api_images + 'w1280' + movie.poster_path" :alt="movie.title" />
 
-      <div class="watch_providers" v-if="watchProviders.BR">
+      <div class="watch_providers" v-if="watchProviders">
         <p>Onde assistir (Brasil)</p>
         <ul>
           <li
             :title="provider.provider_name"
-            v-for="provider in watchProviders.BR.flatrate"
+            v-for="provider in watchProviders.BR?.flatrate"
             :key="provider.provider_id"
           >
             <img
@@ -64,7 +64,7 @@
 
         <div class="detail_item">
           <p>Data de lançamento</p>
-          <span>{{ movie.release_date | dateFilter }}</span>
+          <span>{{ movie.release_date | dateFilter("long") }}</span>
         </div>
 
         <div class="detail_item">
@@ -100,8 +100,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { pageTitle } from "@/helpers.js";
+import pageTitle from "@/utils/pageTitle.js";
 import { dateFilter, genreFilter } from "@/filters.js";
 
 export default {
@@ -122,14 +121,13 @@ export default {
     return {
       movie: null,
       videos: null,
+      api_images: this.$store.state.api_images,
       watchProviders: null,
       url_trailer: "https://www.youtube.com/watch?v=",
     };
   },
 
   computed: {
-    ...mapState(["api_images"]),
-
     styleVoteAverage() {
       const average = this.movie.vote_average;
 
