@@ -14,7 +14,7 @@
 
 <script>
 import MoviePreview from "@/components/MoviePreview.vue";
-import { averageColor } from "@/helpers.js";
+import averageColor from "@/utils/averageColor.js";
 
 export default {
   name: "MoviesList",
@@ -28,9 +28,11 @@ export default {
       movies: null,
     };
   },
+
   created() {
     this.fetchMovies();
   },
+  
   methods: {
     async fetchMovies() {
       await fetch(
