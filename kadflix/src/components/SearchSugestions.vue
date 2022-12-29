@@ -1,17 +1,17 @@
 <template>
-  <ul v-if="movies_search.results" class="movies">
+  <ul v-if="searched_movies.results" class="movies">
     <router-link
       :to="{ name: 'Movie', params: { movie_id: movie.id } }"
       tag="li"
       class="movie"
-      v-for="movie in movies_search.results"
+      v-for="movie in searched_movies.results"
       :key="movie.id"
     >
       <img :src="api_images + 'w300' + movie.poster_path" alt="" />
 
       <div>
         <h4>{{ movie.title }}</h4>
-        <span>{{ movie.release_date | dateFilter }}</span>
+        <span>{{ movie.release_date | dateFilter("short") }}</span>
       </div>
     </router-link>
   </ul>
@@ -24,7 +24,7 @@ import { dateFilter } from "@/filters.js";
 export default {
   name: "SearchSugestions",
   computed: {
-    ...mapState(["movies_search", "api_images"]),
+    ...mapState(["searched_movies", "api_images"]),
   },
   filters: {
     dateFilter,

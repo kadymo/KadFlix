@@ -7,11 +7,11 @@
       <transition-group
         tag="ul"
         name="list"
-        v-if="favorite_movies.length"
+        v-if="this.$store.state.favorite_movies.length"
         class="movies"
       >
         <MoviePreview
-          v-for="movie in favorite_movies"
+          v-for="movie in this.$store.state.favorite_movies"
           :key="movie.id"
           :movie="movie"
         />
@@ -23,25 +23,15 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
 import TheHeader from "@/components/TheHeader.vue";
 import MoviePreview from "@/components/MoviePreview.vue";
-import { pageTitle } from "@/helpers.js";
+import pageTitle from "@/utils/pageTitle.js";
 
 export default {
   name: "Favorites",
   components: {
     TheHeader,
     MoviePreview,
-  },
-  data() {
-    return {
-      favoriteMovies: this.favorite_movies,
-    };
-  },
-
-  computed: {
-    ...mapState(["favorite_movies"]),
   },
 
   created() {
@@ -50,7 +40,6 @@ export default {
 
   methods: {
     pageTitle,
-    ...mapMutations(["UPDATE_LS"]),
   },
 };
 </script>
