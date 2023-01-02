@@ -12,7 +12,7 @@
     <div class="movie_path">
       <img :src="api_images + 'w1280' + movie.poster_path" :alt="movie.title" />
 
-      <div class="watch_providers" v-if="watchProviders">
+      <div class="watch_providers" v-if="watchProviders && watchProviders.BR">
         <p>Onde assistir (Brasil)</p>
         <ul>
           <li
@@ -68,6 +68,11 @@
         </div>
 
         <div class="detail_item">
+          <p>Receita</p>
+          <span>{{ +movie.revenue | currencyFilter }}</span>
+        </div>
+
+        <div class="detail_item">
           <p>Duração</p>
           <span>{{ movie.runtime + " min" }}</span>
         </div>
@@ -101,7 +106,7 @@
 
 <script>
 import pageTitle from "@/utils/pageTitle.js";
-import { dateFilter, genreFilter } from "@/filters.js";
+import { dateFilter, genreFilter, currencyFilter } from "@/filters.js";
 
 export default {
   name: "Movie",
@@ -113,6 +118,7 @@ export default {
   filters: {
     dateFilter,
     genreFilter,
+    currencyFilter,
   },
 
   props: ["movie_id"],
@@ -179,7 +185,8 @@ export default {
         `https://api.themoviedb.org/3/movie/${this.movie_id}?api_key=37823c25fd81a1efa9124efeb53be3a8&language=pt-BR&append_to_response=credits`
       )
         .then((r) => r.json())
-        .then((r) => (this.movie = r));
+        .then((r) => (this.movie = r))
+        .then((r) => console.log(r));
       await this.pageTitle(this.movie.title);
     },
 
@@ -225,7 +232,7 @@ export default {
   position: relative;
   grid-column: 1;
   justify-self: center;
-  margin-top: 320px;
+  margin-top: 400px;
   width: 100%;
   img {
     max-width: 250px;
@@ -330,7 +337,7 @@ export default {
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
-  margin-top: 320px;
+  margin-top: 400px;
 
   h1 {
     letter-spacing: -1px;
