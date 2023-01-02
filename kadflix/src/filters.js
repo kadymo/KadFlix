@@ -14,6 +14,10 @@ export function dateFilter(value, type) {
   }
 }
 
+export function currencyFilter(value) {
+  return value.toLocaleString("pt-BR", { style: "currency", currency: "USD" });
+}
+
 export function genreFilter(value) {
   return value === "Thriller" ? "Suspense" : value;
 }
