@@ -129,7 +129,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   grid-column: 2;
-  max-width: 600px;
+  max-width: 700px;
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
