@@ -109,7 +109,7 @@ export default {
   position: relative;
   grid-column: 1;
   justify-self: center;
-  margin-top: 320px;
+  margin-top: 400px;
   width: 100%;
   img {
     max-width: 250px;
@@ -133,7 +133,7 @@ export default {
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
-  margin-top: 320px;
+  margin-top: 400px;
 
   h1 {
     font-size: 2.2rem;
