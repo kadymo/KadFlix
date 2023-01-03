@@ -67,9 +67,9 @@
           <span>{{ movie.release_date | dateFilter("long") }}</span>
         </div>
 
-        <div class="detail_item">
+        <div class="detail_item" v-if="movie.revenue">
           <p>Receita</p>
-          <span>{{ +movie.revenue | currencyFilter }}</span>
+          <span>{{ movie.revenue | currencyFilter }}</span>
         </div>
 
         <div class="detail_item">
