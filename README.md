@@ -1,14 +1,9 @@
-# KadFlix 🎥
+# 🎥 KadFlix
 ![](https://i.imgur.com/2UPgC1z.png)
 <img src="https://user-images.githubusercontent.com/98963793/197876676-905597a2-fbbb-4568-89d6-eccf8b3ade0b.gif" width="100%"/>
 
-
-
-## 🔛 Demo
-O deploy da aplicação foi feito na plataforma de hospedagem Vercel. Acesse o projeto [neste link](https://kadflix.vercel.app)
-
 ## 📖 Sobre o projeto
-KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e seus artistas. Esse é o meu primeiro projeto pessoal utilizando o Vue.js, um dos mais famosos frameworks do ecossistema front-end para a construção de aplicações web modernas. Aprendi bastante e aprimorei minhas habilidades durante o desenvolvimento.
+KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e seus artistas. Esse é o meu primeiro projeto pessoal utilizando o <b>Vue.js</b>, um dos mais famosos frameworks do ecossistema front-end para a construção de aplicações web modernas. Aprendi bastante e aprimorei minhas habilidades durante o desenvolvimento.
 
 ## 📱 Histórias de usuário
 ✅ Posso ver, na página inicial, diferentes coleções de filmes por gênero. <br>
@@ -20,13 +15,16 @@ KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e 
 
 ## 🛠️ Ferramentas utilizadas
 
-| Ferramenta             | Descrição   |
-| :-------------:|--------------|
+| Ferramenta | Descrição |
+| -------------|--------------|
 | [The Movie Database API](https://developers.themoviedb.org/3) | API utilizada para a coleta dos dados |
-| [Vue.js](https://vuejs.org/) | Framework de JavaScript para a construção de interfaces de usuário |
+| [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) | Linguagem de marcação |
+| [SASS (sintaxe SCSS)](https://sass-lang.com/) |Pré-processador de CSS |
+| [JavaScript](https://www.javascript.com/) | Linguagem de programação |
+| [Vue.js 2](https://vuejs.org/) | Framework de JavaScript para a construção de interfaces de usuário |
 | [Vue CLI](https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md) | Ferramenta para a construção de projetos em Vue.js |
 | [Vue Router](https://router.vuejs.org/) | Biblioteca oficial de roteamento para Vue.js |
 | [Vuex](https://vuex.vuejs.org/) | 	Biblioteca oficial para gerenciamento de estados globais no Vue.js |
-| [SASS (sintaxe SCSS)](https://sass-lang.com/) |Pré-processador de CSS |
-| [Babel](https://babeljs.io/) |Compilador de JavaScript |
-| [Vercel](https://vercel.com/) | Plataforma para a hospedagem de sites estáticos |
+
+## 💻 Live Preview
+O deploy da aplicação foi feito na plataforma Vercel. Você pode acessá-la [neste link](https://kadflix.vercel.app).
