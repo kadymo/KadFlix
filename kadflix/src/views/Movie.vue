@@ -107,6 +107,7 @@
 <script>
 import pageTitle from "@/utils/pageTitle.js";
 import { dateFilter, genreFilter, currencyFilter } from "@/filters.js";
+import { mapState } from "vuex";
 
 export default {
   name: "Movie",
@@ -134,6 +135,7 @@ export default {
   },
 
   computed: {
+    ...mapState(["baseURL", "api_key"]),
     styleVoteAverage() {
       const average = this.movie.vote_average;
 
@@ -182,17 +184,16 @@ export default {
 
     async fetchMovieDetails() {
       await fetch(
-        `https://api.themoviedb.org/3/movie/${this.movie_id}?api_key=37823c25fd81a1efa9124efeb53be3a8&language=pt-BR&append_to_response=credits`
+        `${this.baseURL}movie/${this.movie_id}?api_key=${this.api_key}&language=pt-BR&append_to_response=credits`
       )
         .then((r) => r.json())
-        .then((r) => (this.movie = r))
-        .then((r) => console.log(r));
+        .then((r) => (this.movie = r));
       await this.pageTitle(this.movie.title);
     },
 
     fetchMovieTrailer() {
       fetch(
-        `https://api.themoviedb.org/3/movie/${this.movie_id}/videos?api_key=37823c25fd81a1efa9124efeb53be3a8&lan=en-US`
+        `${this.baseURL}movie/${this.movie_id}/videos?api_key=${this.api_key}&lan=en-US`
       )
         .then((r) => r.json())
         .then((r) => {
@@ -202,7 +203,7 @@ export default {
 
     fetchWatchProviders() {
       fetch(
-        `https://api.themoviedb.org/3/movie/${this.movie_id}/watch/providers?api_key=37823c25fd81a1efa9124efeb53be3a8&language=en-US`
+        `${this.baseURL}movie/${this.movie_id}/watch/providers?api_key=${this.api_key}&language=en-US`
       )
         .then((r) => r.json())
         .then((r) => (this.watchProviders = r.results));

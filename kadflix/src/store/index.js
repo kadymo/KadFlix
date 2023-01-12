@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    baseURL: "https://api.themoviedb.org/3/",
+    api_key: "37823c25fd81a1efa9124efeb53be3a8",
     movies: "",
     searched_movies: "",
     searched_movie: "",
