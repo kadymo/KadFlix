@@ -234,15 +234,13 @@ export default {
   grid-column: 1;
   justify-self: center;
   margin-top: 400px;
-  width: 100%;
+  width: 300px;
   img {
-    max-width: 250px;
     border-radius: 12px;
     box-shadow: 0px 4px 4px #18181d;
     @include responsive("medium") {
       padding: 0;
       width: 100%;
-      max-width: max-content;
       margin: 0;
     }
   }
@@ -252,7 +250,7 @@ export default {
     right: -20px;
     @include responsive("medium") {
       top: -20px;
-      right: 40px;
+      right: -40;
     }
   }
   .average {
@@ -334,7 +332,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   grid-column: 2;
-  max-width: 700px;
+  max-width: 850px;
   font-weight: 400;
   color: #ccc;
   letter-spacing: -0.5px;
@@ -357,6 +355,7 @@ export default {
 
   @include responsive("medium") {
     grid-column: 1;
+    max-width: 100vw;
     font-weight: 300;
     margin-top: 0;
   }
@@ -406,7 +405,7 @@ export default {
     gap: 30px 15px;
     padding: 20px 0;
     margin-bottom: 10px;
-    @media (max-width: 500px) {
+    @media (max-width: 1100px) {
       width: 100vw;
     }
   }

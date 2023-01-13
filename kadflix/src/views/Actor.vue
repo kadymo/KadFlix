@@ -110,15 +110,13 @@ export default {
   grid-column: 1;
   justify-self: center;
   margin-top: 400px;
-  width: 100%;
+  width: 300px;
   img {
-    max-width: 250px;
     border-radius: 12px;
     box-shadow: 0px 4px 4px #18181d;
     @include responsive("medium") {
       padding: 0;
       width: 100%;
-      max-width: max-content;
       margin: 0;
     }
   }
@@ -158,6 +156,7 @@ export default {
   @include responsive("medium") {
     grid-column: 1;
     font-weight: 300;
+    max-width: 100vw;
     margin-top: 0;
   }
   @include responsive("small") {
