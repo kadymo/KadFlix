@@ -4,7 +4,12 @@
     :title="titleFavoriteButton"
     @click.prevent="isFavorited ? DISFAVOR_MOVIE(movie) : FAVORITE_MOVIE(movie)"
   >
-    <svg :style="style" width="26px" height="26px" viewBox="0 0 24 24">
+    <svg
+      :style="styleFavoriteButton"
+      width="26px"
+      height="26px"
+      viewBox="0 0 24 24"
+    >
       <defs>
         <linearGradient id="Favorite">
           <stop offset="5%" stop-color="#84e" />
@@ -19,30 +24,30 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   name: "FavoriteButton",
   props: ["movie"],
-  
+
   data() {
     return {
-      favorite_movies: this.$store.state.favorite_movies
-    }
+      favorite_movies: this.$store.state.favorite_movies,
+    };
   },
 
   computed: {
+    isFavorited() {
+      return this.favorite_movies.some(({ id }) => id === this.movie.id);
+    },
+
     titleFavoriteButton() {
       return this.isFavorited
         ? "Remover dos favoritos"
         : "Adicionar aos favoritos";
     },
 
-    isFavorited() {
-      return this.favorite_movies.some(({ id }) => id === this.movie.id);
-    },
-
-    style() {
+    styleFavoriteButton() {
       if (this.isFavorited) {
         return {
           fill: "url(#Favorite)",
@@ -64,6 +69,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
