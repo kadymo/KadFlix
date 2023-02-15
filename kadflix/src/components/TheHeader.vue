@@ -65,15 +65,16 @@ export default {
     SearchSugestions,
   },
 
-  computed: {
-    searched_movie: {
-      get() {
-        return "";
-      },
-      set(value) {
-        this.$store.dispatch("fetchSearchedMovies", value);
-      },
-    },
+  data() {
+    return {
+      searched_movie: "",
+    }
+  },
+
+  watch: {
+    searched_movie(value) {
+      this.$store.dispatch("fetchSearchedMovies", value);
+    }
   },
 };
 </script>
