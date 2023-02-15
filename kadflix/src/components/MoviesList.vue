@@ -14,8 +14,8 @@
 
 <script>
 import MoviePreview from "@/components/MoviePreview.vue";
-import averageColor from "@/utils/averageColor.js";
-import { mapState } from 'vuex';
+import useFetch from "@/composables/fetch";
+import ratingsColor from "@/utils/ratingsColor.js";
 
 export default {
   name: "MoviesList",
@@ -30,24 +30,20 @@ export default {
     };
   },
 
-  computed: {
-    ...mapState(["baseURL", "api_key"])
-  },
-
   created() {
     this.fetchMovies();
   },
-  
+
   methods: {
+    ratingsColor,
     async fetchMovies() {
-      await fetch(
-        `${this.baseURL}discover/movie?api_key=${this.api_key}&language=pt-BR&${this.fetchFilter}`
-      )
-        .then((r) => r.json())
-        .then((r) => (this.movies = r));
-      await this.averageColor();
+      const data = await useFetch(
+        "discover/movie?",
+        `&language=pt-BR&${this.fetchFilter}`
+      );
+      this.movies = data;
+      this.ratingsColor();
     },
-    averageColor,
   },
 };
 </script>
