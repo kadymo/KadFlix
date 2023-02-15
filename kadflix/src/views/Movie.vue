@@ -1,7 +1,7 @@
 <template>
   <main
     :style="{
-      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${url_images}original${movie.backdrop_path}')`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
