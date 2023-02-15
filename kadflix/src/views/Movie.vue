@@ -10,7 +10,7 @@
     v-if="movie"
   >
     <div class="movie_path">
-      <img :src="api_images + 'w1280' + movie.poster_path" :alt="movie.title" />
+      <img :src="url_images + 'w1280' + movie.poster_path" :alt="movie.title" />
 
       <div class="watch_providers" v-if="watchProviders && watchProviders.BR">
         <p>Onde assistir (Brasil)</p>
@@ -21,16 +21,16 @@
             :key="provider.provider_id"
           >
             <img
-              :src="api_images + 'w1280' + provider.logo_path"
+              :src="url_images + 'w1280' + provider.logo_path"
               :alt="provider.provider_name"
             />
           </li>
         </ul>
       </div>
 
-      <div class="average_container">
-        <div class="average" :style="styleVoteAverage">
-          <span class="average_value">{{ movie.vote_average.toFixed(1) }}</span>
+      <div class="rating_container">
+        <div class="rating" :style="styleRatingAverage">
+          <span class="rating_value">{{ movie.vote_average.toFixed(1) }}</span>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
             :key="actor.id"
           >
             <img
-              :src="api_images + 'w342' + actor.profile_path"
+              :src="url_images + 'w342' + actor.profile_path"
               :alt="actor.name"
             />
             <div class="actor_details">
@@ -106,14 +106,15 @@
 
 <script>
 import pageTitle from "@/utils/pageTitle.js";
+import FavoriteButton from "@/components/FavoriteButton.vue";
+import useFetch from "@/composables/fetch";
 import { dateFilter, genreFilter, currencyFilter } from "@/filters.js";
-import { mapState } from "vuex";
 
 export default {
   name: "Movie",
 
   components: {
-    FavoriteButton: () => import("@/components/FavoriteButton.vue"),
+    FavoriteButton,
   },
 
   filters: {
@@ -128,39 +129,38 @@ export default {
     return {
       movie: null,
       videos: null,
-      api_images: this.$store.state.api_images,
       watchProviders: null,
+      url_images: "https://image.tmdb.org/t/p/",
       url_trailer: "https://www.youtube.com/watch?v=",
     };
   },
 
   computed: {
-    ...mapState(["baseURL", "api_key"]),
-    styleVoteAverage() {
-      const average = this.movie.vote_average;
+    styleRatingAverage() {
+      const ratingAverage = this.movie.vote_average;
 
-      if (average >= 8) {
+      if (ratingAverage >= 8) {
         return {
           background: `conic-gradient(#55a855 ${
-            average * 10 * 3.6
+            ratingAverage * 10 * 3.6
           }deg, #2d2d35 0deg)`,
         };
-      } else if (average >= 7 && average < 8) {
+      } else if (ratingAverage >= 7 && ratingAverage < 8) {
         return {
           background: `conic-gradient(#96a855 ${
-            average * 10 * 3.6
+            ratingAverage * 10 * 3.6
           }deg, #2d2d35 0deg)`,
         };
-      } else if (average >= 6 && average < 7) {
+      } else if (ratingAverage >= 6 && ratingAverage < 7) {
         return {
           background: `conic-gradient(#fcc040 ${
-            average * 10 * 3.6
+            ratingAverage * 10 * 3.6
           }deg, #2d2d35 0deg)`,
         };
       } else {
         return {
           background: `conic-gradient(#c00505 ${
-            average * 10 * 3.6
+            ratingAverage * 10 * 3.6
           }deg, #2d2d35 0deg)`,
         };
       }
@@ -181,32 +181,29 @@ export default {
 
   methods: {
     pageTitle,
-
     async fetchMovieDetails() {
-      await fetch(
-        `${this.baseURL}movie/${this.movie_id}?api_key=${this.api_key}&language=pt-BR&append_to_response=credits`
-      )
-        .then((r) => r.json())
-        .then((r) => (this.movie = r));
-      await this.pageTitle(this.movie.title);
+      const data = await useFetch(
+        `movie/${this.movie_id}?`,
+        "&language=pt-BR&append_to_response=credits"
+      );
+      this.movie = data;
+      this.pageTitle(this.movie.title)
     },
 
-    fetchMovieTrailer() {
-      fetch(
-        `${this.baseURL}movie/${this.movie_id}/videos?api_key=${this.api_key}&lan=en-US`
-      )
-        .then((r) => r.json())
-        .then((r) => {
-          this.videos = r.results;
-        });
+    async fetchMovieTrailer() {
+      const data = await useFetch(
+        `movie/${this.movie_id}/videos?`,
+        "&language=en-US"
+      );
+      this.videos = data.results;
     },
 
-    fetchWatchProviders() {
-      fetch(
-        `${this.baseURL}movie/${this.movie_id}/watch/providers?api_key=${this.api_key}&language=en-US`
-      )
-        .then((r) => r.json())
-        .then((r) => (this.watchProviders = r.results));
+    async fetchWatchProviders() {
+      const data = await useFetch(
+        `movie/${this.movie_id}/watch/providers?`,
+        "&language=en-US"
+      );
+      this.watchProviders = data.results;
     },
   },
 };
@@ -236,7 +233,7 @@ export default {
   margin-top: 400px;
   width: 300px;
   img {
-    border-radius: 12px;
+    border-radius: 20px;
     box-shadow: 0px 4px 4px #18181d;
     @include responsive("medium") {
       padding: 0;
@@ -244,7 +241,7 @@ export default {
       margin: 0;
     }
   }
-  .average_container {
+  .rating_container {
     position: absolute;
     top: -20px;
     right: -20px;
@@ -253,7 +250,7 @@ export default {
       right: -40;
     }
   }
-  .average {
+  .rating {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,7 +266,7 @@ export default {
       background: #1d1d22;
       border-radius: 50%;
     }
-    .average_value {
+    .rating_value {
       z-index: 2;
       font-size: 22px;
       font-weight: 500;

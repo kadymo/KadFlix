@@ -3,7 +3,7 @@
     v-if="actor"
     class="container"
     :style="{
-      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('https://image.tmdb.org/t/p/original${actor.profile_path}')`,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${url_images}original${actor.profile_path}')`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -11,7 +11,7 @@
   >
     <div class="actor_path">
       <img
-        :src="api_images + 'original/' + actor.profile_path"
+        :src="url_images + 'original/' + actor.profile_path"
         :alt="actor.name"
       />
     </div>
@@ -54,8 +54,9 @@
 
 <script>
 import MoviePreview from "@/components/MoviePreview.vue";
+import useFetch from "@/composables/fetch";
 import pageTitle from "@/utils/pageTitle.js";
-import averageColor from "@/utils/averageColor.js";
+import ratingsColor from "@/utils/ratingsColor.js";
 import { dateFilter } from "@/filters.js";
 
 export default {
@@ -73,22 +74,22 @@ export default {
   data() {
     return {
       actor: null,
-      api_images: this.$store.state.api_images,
+      url_images: "https://image.tmdb.org/t/p/",
     };
   },
 
   methods: {
-    averageColor,
+    ratingsColor,
     pageTitle,
 
     async fetchActor() {
-      await fetch(
-        `https://api.themoviedb.org/3/person/${this.actor_id}?api_key=37823c25fd81a1efa9124efeb53be3a8&language=pt-BR&append_to_response=movie_credits`
-      )
-        .then((r) => r.json())
-        .then((r) => (this.actor = r));
-      await this.averageColor();
-      await this.pageTitle(this.actor.name);
+      const data = await useFetch(
+        `person/${this.actor_id}?`,
+        "&language=pt-BR&append_to_response=movie_credits"
+      );
+      this.actor = data;
+      this.ratingsColor();
+      this.pageTitle(this.actor.name);
     },
   },
 

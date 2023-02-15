@@ -1,30 +1,29 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import useFetch from "@/composables/fetch";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    baseURL: "https://api.themoviedb.org/3/",
-    api_key: "37823c25fd81a1efa9124efeb53be3a8",
     movies: "",
     searched_movies: "",
     searched_movie: "",
-    api_images: "https://image.tmdb.org/t/p/",
     favorite_movies: [],
+    url_images: "https://image.tmdb.org/t/p/",
   },
 
   mutations: {
-    GET_SEARCHED_MOVIES(state, payload) {
-      state.searched_movies = payload;
+    GET_SEARCHED_MOVIES(state, movies) {
+      state.searched_movies = movies;
     },
 
-    FAVORITE_MOVIE(state, payload) {
-      state.favorite_movies.push(payload);
+    FAVORITE_MOVIE(state, movie) {
+      state.favorite_movies.push(movie);
     },
 
-    DISFAVOR_MOVIE(state, payload) {
-      const index = state.favorite_movies.indexOf(payload);
+    DISFAVOR_MOVIE(state, movie) {
+      const index = state.favorite_movies.indexOf(movie);
       const movieObject = {
         index: index,
       };
@@ -38,14 +37,12 @@ export default new Vuex.Store({
   },
 
   actions: {
-    fetchSearchedMovies(context, payload) {
-      fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=37823c25fd81a1efa9124efeb53be3a8&language=pt-BR&query=${payload}`
-      )
-        .then((r) => r.json())
-        .then((r) => {
-          context.commit("GET_SEARCHED_MOVIES", r);
-        });
+    async fetchSearchedMovies(context, movie) {
+      const data = await useFetch(
+        "search/movie?",
+        `&language=pt-BR&query=${movie}`
+      );
+      context.commit("GET_SEARCHED_MOVIES", data);
     },
   },
 });
