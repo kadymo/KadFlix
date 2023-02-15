@@ -5,15 +5,15 @@
     v-if="movie.vote_average > 0"
     :to="{ name: 'Movie', params: { movie_id: movie.id } }"
   >
-    <img :src="api_images + 'w342/' + movie.poster_path" :alt="movie.title" />
+    <img :src="url_images + 'w342/' + movie.poster_path" :alt="movie.title" />
 
     <div class="movie_details">
       <span>{{ movie.release_date | dateFilter("short") }}</span>
       <h3>{{ movie.title }}</h3>
     </div>
 
-    <span class="vote_average">{{
-      movie.vote_average.toFixed(1) | voteAverageFilter
+    <span class="rating_average">{{
+      movie.vote_average.toFixed(1) | ratingAverageFilter
     }}</span>
 
     <FavoriteButton :movie="movie" />
@@ -22,15 +22,15 @@
 
 <script>
 import FavoriteButton from "@/components/FavoriteButton.vue";
-import { dateFilter, voteAverageFilter } from "@/filters.js";
-import averageColor from "@/utils/averageColor.js";
+import { dateFilter, ratingAverageFilter } from "@/filters.js";
+import ratingsColor from "@/utils/ratingsColor.js";
 
 export default {
   name: "MoviePreview",
 
   filters: {
     dateFilter,
-    voteAverageFilter,
+    ratingAverageFilter,
   },
 
   components: {
@@ -41,16 +41,16 @@ export default {
 
   data() {
     return {
-      api_images: this.$store.state.api_images,
+      url_images: "https://image.tmdb.org/t/p/",
     };
   },
 
   mounted() {
-    this.averageColor();
+    this.ratingsColor();
   },
 
   methods: {
-    averageColor,
+    ratingsColor,
   },
 };
 </script>
@@ -117,7 +117,7 @@ export default {
       color: #fff;
     }
   }
-  .vote_average {
+  .rating_average {
     display: flex;
     justify-content: center;
     position: absolute;

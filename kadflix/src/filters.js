@@ -22,7 +22,7 @@ export function genreFilter(value) {
   return value === "Thriller" ? "Suspense" : value;
 }
 
-export function voteAverageFilter(value) {
+export function ratingAverageFilter(value) {
   value.toString();
   return value.length === 1 ? value + ".0" : value;
 }

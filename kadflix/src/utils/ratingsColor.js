@@ -1,5 +1,5 @@
-export default function averageColor() {
-  const els = document.querySelectorAll(".vote_average");
+export default function ratingsColor() {
+  const els = document.querySelectorAll(".rating_average");
   els.forEach((el) => {
     if (+el.textContent >= 8) {
       el.classList.add("very_good");
