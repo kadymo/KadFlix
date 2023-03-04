@@ -1,8 +1,14 @@
 <template>
-  <div class="container">
-    <slot></slot>
-
-    <ul v-if="movies" class="movies">
+  <div v-if="movies" class="container">
+    <div>
+      <slot></slot>
+      <Pagination
+        :currentPage="movies.page"
+        :totalPages="movies.total_pages"
+        @paginate="paginate"
+      />
+    </div>
+    <ul class="movies">
       <MoviePreview
         v-for="movie in movies.results"
         :key="movie.id"
@@ -13,6 +19,7 @@
 </template>
 
 <script>
+import Pagination from "@/components/Pagination.vue";
 import MoviePreview from "@/components/MoviePreview.vue";
 import useFetch from "@/composables/fetch";
 import ratingsColor from "@/utils/ratingsColor.js";
@@ -20,6 +27,7 @@ import ratingsColor from "@/utils/ratingsColor.js";
 export default {
   name: "MoviesList",
   components: {
+    Pagination,
     MoviePreview,
   },
   props: ["fetchFilter"],
@@ -27,7 +35,15 @@ export default {
   data() {
     return {
       movies: null,
+      currentPage: 1,
     };
+  },
+
+  watch: {
+    currentPage() {
+      this.fetchMovies();
+      this.ratingsColor();
+    },
   },
 
   created() {
@@ -39,10 +55,14 @@ export default {
     async fetchMovies() {
       const data = await useFetch(
         "discover/movie?",
-        `&language=pt-BR&${this.fetchFilter}`
+        `&page=${this.currentPage}&language=pt-BR&${this.fetchFilter}`
       );
       this.movies = data;
       this.ratingsColor();
+    },
+
+    paginate(page) {
+      this.currentPage = page;
     },
   },
 };
@@ -55,6 +75,11 @@ export default {
   padding-left: 30px;
   @include responsive("small") {
     padding-left: 20px;
+  }
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
