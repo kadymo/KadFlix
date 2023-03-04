@@ -73,7 +73,7 @@ export default {
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   margin-top: 100px;
   @include responsive("small") {
     gap: 20px;
