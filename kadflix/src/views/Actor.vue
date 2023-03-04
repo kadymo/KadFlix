@@ -113,7 +113,7 @@ export default {
   margin-top: 400px;
   width: 300px;
   img {
-    border-radius: 12px;
+    border-radius: 20px;
     box-shadow: 0px 4px 4px #18181d;
     @include responsive("medium") {
       padding: 0;
