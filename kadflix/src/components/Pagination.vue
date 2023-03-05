@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../scss/abstracts/mixins";
 .pagination {
   display: flex;
   gap: 8px;
@@ -53,6 +54,11 @@ export default {
     &.active-page {
       background: linear-gradient(to top right, #84e, #5f369d);
     }
+  }
+
+  @include responsive("medium") {
+    position: absolute;
+    bottom: -320px;
   }
 }
 </style>
