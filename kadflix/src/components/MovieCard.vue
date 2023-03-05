@@ -26,7 +26,7 @@ import { dateFilter, ratingAverageFilter } from "@/filters.js";
 import ratingsColor from "@/utils/ratingsColor.js";
 
 export default {
-  name: "MoviePreview",
+  name: "MovieCard",
 
   filters: {
     dateFilter,

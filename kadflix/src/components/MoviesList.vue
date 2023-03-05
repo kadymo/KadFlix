@@ -9,7 +9,7 @@
       />
     </div>
     <ul class="movies">
-      <MoviePreview
+      <MovieCard
         v-for="movie in movies.results"
         :key="movie.id"
         :movie="movie"
@@ -20,7 +20,7 @@
 
 <script>
 import Pagination from "@/components/Pagination.vue";
-import MoviePreview from "@/components/MoviePreview.vue";
+import MovieCard from "@/components/MovieCard.vue";
 import useFetch from "@/composables/fetch";
 import ratingsColor from "@/utils/ratingsColor.js";
 
@@ -28,7 +28,7 @@ export default {
   name: "MoviesList",
   components: {
     Pagination,
-    MoviePreview,
+    MovieCard,
   },
   props: ["fetchFilter"],
 
@@ -73,13 +73,19 @@ export default {
 
 .container {
   padding-left: 30px;
-  @include responsive("small") {
-    padding-left: 20px;
-  }
+
   > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  @include responsive("small") {
+    padding-left: 20px;
+    > div {
+      display: initial;
+      position: relative;
+    }
   }
 }
 
