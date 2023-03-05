@@ -2,7 +2,7 @@
   <div>
     <TheHeader />
 
-    <section>
+    <main>
       <h1>Filmes favoritos</h1>
       <transition-group
         tag="ul"
@@ -10,7 +10,7 @@
         v-if="this.$store.state.favorite_movies.length"
         class="movies"
       >
-        <MoviePreview
+        <MovieCard
           v-for="movie in this.$store.state.favorite_movies"
           :key="movie.id"
           :movie="movie"
@@ -18,20 +18,20 @@
       </transition-group>
 
       <p v-else>Você não adicionou nenhum filme aos favoritos.</p>
-    </section>
+    </main>
   </div>
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader.vue";
-import MoviePreview from "@/components/MoviePreview.vue";
+import MovieCard from "@/components/MovieCard.vue";
 import pageTitle from "@/utils/pageTitle.js";
 
 export default {
   name: "Favorites",
   components: {
     TheHeader,
-    MoviePreview,
+    MovieCard,
   },
 
   created() {
@@ -47,7 +47,7 @@ export default {
 <style scoped lang="scss">
 @import "../scss/abstracts/_mixins.scss";
 
-section {
+main {
   padding-left: 30px;
   margin-top: 100px;
   @include responsive("small") {
