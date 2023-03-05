@@ -75,8 +75,8 @@ main {
   flex-direction: column;
   gap: 30px;
   margin-top: 100px;
-  @include responsive("small") {
-    gap: 20px;
+  @include responsive("medium") {
+    gap: 100px;
     margin-top: 20px;
   }
 }
