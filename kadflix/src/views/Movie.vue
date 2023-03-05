@@ -9,7 +9,7 @@
     class="container"
     v-if="movie"
   >
-    <div class="movie_path">
+    <div class="movie_poster">
       <img :src="url_images + 'w1280' + movie.poster_path" :alt="movie.title" />
 
       <div class="watch_providers" v-if="watchProviders && watchProviders.BR">
@@ -50,7 +50,7 @@
 
       <p class="overview">{{ movie.overview }}</p>
 
-      <article class="movie_details">
+      <ul class="movie_details">
         <h2>Detalhes</h2>
 
         <div class="detail_item">
@@ -76,36 +76,25 @@
           <p>Duração</p>
           <span>{{ movie.runtime + " min" }}</span>
         </div>
-      </article>
+      </ul>
 
-      <article class="movie_credits">
+      <div class="movie_credits">
         <h2>Elenco</h2>
-
         <ul v-once class="credits">
-          <router-link
-            tag="li"
-            :to="{ name: 'Actor', params: { actor_id: actor.id } }"
-            class="actor"
+          <ActorCard
             v-for="actor in movie.credits.cast"
             :key="actor.id"
-          >
-            <img
-              :src="url_images + 'w342' + actor.profile_path"
-              :alt="actor.name"
-            />
-            <div class="actor_details">
-              <h3>{{ actor.name }}</h3>
-              <span>{{ actor.character }}</span>
-            </div>
-          </router-link>
+            :actor="actor"
+          />
         </ul>
-      </article>
+      </div>
     </section>
   </main>
 </template>
 
 <script>
 import pageTitle from "@/utils/pageTitle.js";
+import ActorCard from "@/components/ActorCard.vue";
 import FavoriteButton from "@/components/FavoriteButton.vue";
 import useFetch from "@/composables/fetch";
 import { dateFilter, genreFilter, currencyFilter } from "@/filters.js";
@@ -114,6 +103,7 @@ export default {
   name: "Movie",
 
   components: {
+    ActorCard,
     FavoriteButton,
   },
 
@@ -187,7 +177,7 @@ export default {
         "&language=pt-BR&append_to_response=credits"
       );
       this.movie = data;
-      this.pageTitle(this.movie.title)
+      this.pageTitle(this.movie.title);
     },
 
     async fetchMovieTrailer() {
@@ -226,7 +216,7 @@ export default {
   }
 }
 
-.movie_path {
+.movie_poster {
   position: relative;
   grid-column: 1;
   justify-self: center;
@@ -407,60 +397,10 @@ export default {
     }
   }
 
-  .actor {
-    position: relative;
-    min-width: 150px;
-    max-width: 150px;
-    cursor: pointer;
-    transition: 0.2s;
-    &:hover {
-      transform: scale(1.1);
-      .actor_details {
-        display: grid;
-      }
-    }
-
-    img {
-      border-radius: 12px;
-      box-shadow: 0px 6px 4px #18181d;
-    }
-
-    .actor_details {
-      display: none;
-      grid-template-columns: 1fr auto;
-      gap: 5px 10px;
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      backdrop-filter: blur(30px);
-      border-bottom-right-radius: 12px;
-      border-bottom-left-radius: 12px;
-      padding: 10px;
-      overflow: hidden;
-      animation: show_details 0.3s forwards;
-
-      span {
-        font-size: 14px;
-        color: #eee;
-      }
-
-      h3 {
-        grid-column: 1 / -1;
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: -0.5px;
-        color: #fff;
-      }
-    }
-  }
   @include responsive("medium") {
     width: 100vw;
     .credits {
       width: 100vw;
-      .actor {
-        max-width: 140px;
-      }
     }
   }
 }
