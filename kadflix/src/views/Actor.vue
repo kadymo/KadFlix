@@ -9,7 +9,7 @@
       backgroundPosition: 'center',
     }"
   >
-    <div class="actor_path">
+    <div class="actor_photo">
       <img
         :src="url_images + 'original/' + actor.profile_path"
         :alt="actor.name"
@@ -41,7 +41,7 @@
       <article class="actor_movies">
         <h2>Filmes</h2>
         <ul v-once v-if="actor.movie_credits.cast" class="movies">
-          <MoviePreview
+          <MovieCard
             v-for="movie in actor.movie_credits.cast"
             :key="movie.id"
             :movie="movie"
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import MoviePreview from "@/components/MoviePreview.vue";
+import MovieCard from "@/components/MovieCard.vue";
 import useFetch from "@/composables/fetch";
 import pageTitle from "@/utils/pageTitle.js";
 import ratingsColor from "@/utils/ratingsColor.js";
@@ -62,7 +62,7 @@ import { dateFilter } from "@/filters.js";
 export default {
   name: "Actor",
   components: {
-    MoviePreview,
+    MovieCard,
   },
 
   filters: {
@@ -106,7 +106,7 @@ export default {
   @include containerDetails;
 }
 
-.actor_path {
+.actor_photo {
   position: relative;
   grid-column: 1;
   justify-self: center;
