@@ -13,16 +13,21 @@ img {
   max-width: 100%;
 }
 
-a {
-  text-decoration: none;
+a,
+input,
+button {
+  font-size: 1rem;
 }
 
 input,
 button {
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
   border: none;
   outline: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
