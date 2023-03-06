@@ -8,7 +8,7 @@
         @paginate="paginate"
       />
     </div>
-    <ul class="movies">
+    <ul ref="movies" class="movies">
       <MovieCard
         v-for="movie in movies.results"
         :key="movie.id"
@@ -63,6 +63,7 @@ export default {
 
     paginate(page) {
       this.currentPage = page;
+      this.$refs.movies.scrollTo({ behavior: "smooth", left: 0 });
     },
   },
 };
@@ -80,7 +81,7 @@ export default {
     align-items: center;
   }
 
-  @include responsive("small") {
+  @include responsive("medium") {
     padding-left: 20px;
     > div {
       display: initial;
