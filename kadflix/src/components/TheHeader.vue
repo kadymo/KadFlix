@@ -74,10 +74,14 @@ export default {
   @media (max-width: 600px) {
     grid-template-columns: 2fr auto;
     align-items: center;
-    gap: 15px;
+    gap: 20px 15px;
     position: relative;
     min-width: 100vw;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
+    .logo {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
   }
 }
 
