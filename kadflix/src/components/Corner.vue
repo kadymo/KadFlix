@@ -54,6 +54,10 @@
 }
 @media (max-width: 500px) {
   .github-corner {
+    svg {
+      position: absolute !important;
+    }
+
     .octo-arm {
       animation: octocat-wave 560ms ease-in-out;
     }
