@@ -1,9 +1,13 @@
-# 🎥 KadFlix
-![](https://i.imgur.com/2UPgC1z.png)
-<img src="https://user-images.githubusercontent.com/98963793/197876676-905597a2-fbbb-4568-89d6-eccf8b3ade0b.gif" width="100%"/>
+<div align="center">
+  <img width="180" src="https://user-images.githubusercontent.com/98963793/223004552-0a14110d-ad66-4eb9-9cdb-18dddfe4f9a6.png"/>
+</div>
+<div>‎</div>
+
+<img src="https://user-images.githubusercontent.com/98963793/223004331-ce65ffe1-5296-4b6a-b1e8-8dd709c97f4d.png" />
+<img width="100%" src="https://user-images.githubusercontent.com/98963793/223004119-e1db9d56-c953-47b9-8708-d8f531c7474b.gif" />
 
 ## 📖 Sobre o projeto
-KadFlix é uma aplicação que aglomera informações e detalhes sobre filmes e seus artistas. Esse é o meu primeiro projeto pessoal utilizando o <b>Vue.js</b>, um dos mais famosos frameworks do ecossistema front-end para a construção de aplicações web modernas. Aprendi bastante e aprimorei minhas habilidades durante o desenvolvimento.
+KadFlix é uma aplicação web que aglomera informações sobre filmes e seus artistas. O objetivo do KadFlix é ajudar os usuários a escolherem filmes para assistir, permitindo a adição de títulos à lista de favoritos e exibindo, entre outras informações, a avaliação dos usuários e os serviços de streaming onde assistir.
 
 ## 📱 Histórias de usuário
 ✅ Posso ver, na página inicial, diferentes coleções de filmes por gênero. <br>
