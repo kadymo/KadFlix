@@ -77,12 +77,7 @@ main {
   margin-top: 120px;
   @include responsive("medium") {
     gap: 100px;
-    margin-top: 40px;
-  }
-
-  .container:last-child .pagination {
-    bottom: -340px;
-    padding-bottom: 20px;
+    margin-top: 20px;
   }
 }
 </style>
