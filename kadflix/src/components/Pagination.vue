@@ -3,6 +3,7 @@
     <li
       :class="{ 'active-page': page === currentPage }"
       v-for="page in pages"
+      :key="page"
       @click="$emit('paginate', page)"
     >
       {{ page }}
@@ -58,7 +59,8 @@ export default {
 
   @include responsive("medium") {
     position: absolute;
-    bottom: -320px;
+    bottom: -340px;
+    padding-bottom: 20px;
   }
 }
 </style>
