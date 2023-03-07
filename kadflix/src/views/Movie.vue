@@ -203,7 +203,7 @@ export default {
 @import "../scss/abstracts/_mixins.scss";
 
 .container {
-  @include containerDetails;
+  @include grid_container;
 }
 
 .movie_title {
@@ -217,20 +217,7 @@ export default {
 }
 
 .movie_poster {
-  position: relative;
-  grid-column: 1;
-  justify-self: center;
-  margin-top: 400px;
-  width: 300px;
-  img {
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px #18181d;
-    @include responsive("medium") {
-      padding: 0;
-      width: 100%;
-      margin: 0;
-    }
-  }
+  @include photo_column;
   .rating_container {
     position: absolute;
     top: -20px;
@@ -294,7 +281,6 @@ export default {
     background: linear-gradient(to right, #5f33a1, #84e);
     font-size: 18px;
     font-weight: 400;
-    text-decoration: none;
     color: #fff;
     border-radius: 25px;
     padding: 14px 28px;
@@ -315,69 +301,15 @@ export default {
 }
 
 .movie_info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  grid-column: 2;
-  max-width: 850px;
-  font-weight: 400;
-  color: #ccc;
-  letter-spacing: -0.5px;
-  margin-top: 400px;
-
-  h1 {
-    letter-spacing: -1px;
-    line-height: 1.1;
-    color: #fff;
-  }
-
-  h2 {
-    font-weight: 600;
-    color: #fff;
-  }
+  @include info_column;
 
   .overview {
     line-height: 1.4;
   }
-
-  @include responsive("medium") {
-    grid-column: 1;
-    max-width: 100vw;
-    font-weight: 300;
-    margin-top: 0;
-  }
-  @include responsive("small") {
-    letter-spacing: 0;
-    h1 {
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-    }
-  }
 }
 
 .movie_details {
-  display: flex;
-  flex-direction: column;
-  .detail_item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    align-items: center;
-    border-bottom: 2px solid #2d2d35;
-    padding: 15px 0;
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      li {
-        display: inline-block;
-        background: #27272e;
-        border: 2px solid #2d2d35;
-        border-radius: 25px;
-        padding: 4px 12px;
-      }
-    }
-  }
+  @include grid_details;
 }
 
 .movie_credits {
