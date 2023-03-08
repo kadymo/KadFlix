@@ -23,6 +23,9 @@ import { dateFilter } from "@/filters.js";
 
 export default {
   name: "SearchSugestions",
+  computed: {
+    ...mapState(["searched_movies"]),
+  },
   filters: {
     dateFilter,
   },
