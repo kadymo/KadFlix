@@ -77,6 +77,8 @@ main {
   margin-top: 120px;
   @include responsive("medium") {
     gap: 100px;
+  }
+  @include responsive("small") {
     margin-top: 20px;
   }
 }
