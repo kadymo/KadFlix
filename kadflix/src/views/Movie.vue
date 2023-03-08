@@ -1,7 +1,7 @@
 <template>
   <main
     :style="{
-      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${url_images}original${movie.backdrop_path}')`,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${$store.state.url_images}original${movie.backdrop_path}')`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -10,7 +10,10 @@
     v-if="movie"
   >
     <div class="movie_poster">
-      <img :src="url_images + 'w1280' + movie.poster_path" :alt="movie.title" />
+      <img
+        :src="$store.state.url_images + 'w1280' + movie.poster_path"
+        :alt="movie.title"
+      />
 
       <div class="watch_providers" v-if="watchProviders && watchProviders.BR">
         <p>Onde assistir (Brasil)</p>
@@ -21,7 +24,7 @@
             :key="provider.provider_id"
           >
             <img
-              :src="url_images + 'w1280' + provider.logo_path"
+              :src="$store.state.url_images + 'w1280' + provider.logo_path"
               :alt="provider.provider_name"
             />
           </li>
@@ -120,7 +123,6 @@ export default {
       movie: null,
       videos: null,
       watchProviders: null,
-      url_images: "https://image.tmdb.org/t/p/",
       url_trailer: "https://www.youtube.com/watch?v=",
     };
   },

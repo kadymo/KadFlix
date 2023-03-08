@@ -5,7 +5,10 @@
     v-if="movie.vote_average > 0"
     :to="{ name: 'Movie', params: { movie_id: movie.id } }"
   >
-    <img :src="url_images + 'w342/' + movie.poster_path" :alt="movie.title" />
+    <img
+      :src="$store.state.url_images + 'w342/' + movie.poster_path"
+      :alt="movie.title"
+    />
 
     <div class="movie_details">
       <span>{{ movie.release_date | dateFilter("short") }}</span>
@@ -38,12 +41,6 @@ export default {
   },
 
   props: ["movie"],
-
-  data() {
-    return {
-      url_images: "https://image.tmdb.org/t/p/",
-    };
-  },
 
   mounted() {
     this.ratingsColor();

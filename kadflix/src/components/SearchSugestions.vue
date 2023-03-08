@@ -7,7 +7,7 @@
       v-for="movie in searched_movies.results"
       :key="movie.id"
     >
-      <img :src="url_images + 'w300' + movie.poster_path" alt="" />
+      <img :src="$store.state.url_images + 'w300' + movie.poster_path" alt="" />
 
       <div>
         <h4>{{ movie.title }}</h4>
@@ -23,9 +23,6 @@ import { dateFilter } from "@/filters.js";
 
 export default {
   name: "SearchSugestions",
-  computed: {
-    ...mapState(["searched_movies", "url_images"]),
-  },
   filters: {
     dateFilter,
   },

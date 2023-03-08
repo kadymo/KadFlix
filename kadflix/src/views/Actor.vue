@@ -3,7 +3,7 @@
     v-if="actor"
     class="container"
     :style="{
-      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${url_images}original${actor.profile_path}')`,
+      backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${$store.state.url_images}original${actor.profile_path}')`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -11,7 +11,7 @@
   >
     <div class="actor_photo">
       <img
-        :src="url_images + 'original/' + actor.profile_path"
+        :src="$store.state.url_images + 'original/' + actor.profile_path"
         :alt="actor.name"
       />
     </div>
@@ -74,7 +74,6 @@ export default {
   data() {
     return {
       actor: null,
-      url_images: "https://image.tmdb.org/t/p/",
     };
   },
 
