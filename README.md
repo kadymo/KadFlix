@@ -3,7 +3,7 @@
 </div>
 <div>‎</div>
 
-<img src="https://user-images.githubusercontent.com/98963793/223004331-ce65ffe1-5296-4b6a-b1e8-8dd709c97f4d.png" />
+<img src="https://user-images.githubusercontent.com/98963793/224505565-77dbd992-65de-4cb9-9842-1902f5f553f9.png" />
 <img width="100%" src="https://user-images.githubusercontent.com/98963793/223004119-e1db9d56-c953-47b9-8708-d8f531c7474b.gif" />
 
 ## 📖 Sobre o projeto
