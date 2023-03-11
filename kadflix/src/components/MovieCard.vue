@@ -78,6 +78,7 @@ export default {
     max-width: 100%;
     border-radius: 12px;
     box-shadow: 0px 6px 4px #18181d;
+    overflow: hidden;
   }
 
   .movie_details {
@@ -118,12 +119,15 @@ export default {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     width: 30px;
+    font-weight: 500;
     color: #fff;
-    border-radius: 6px;
-    padding: 3px 0;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 5px;
   }
 
   .favorite {
