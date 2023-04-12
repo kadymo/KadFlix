@@ -22,13 +22,14 @@ KadFlix é uma aplicação web que aglomera informações sobre filmes e seus ar
 | Ferramenta | Descrição |
 | -------------|--------------|
 | [The Movie Database API](https://developers.themoviedb.org/3) | API utilizada para a coleta dos dados |
-| [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) | Linguagem de marcação |
+| [HTML 5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) | Linguagem de marcação |
+| [CSS 3](https://developer.mozilla.org/pt-BR/docs/Web/CSS) | Linguagem de estilo |
 | [SASS (sintaxe SCSS)](https://sass-lang.com/) |Pré-processador de CSS |
 | [JavaScript](https://www.javascript.com/) | Linguagem de programação |
 | [Vue.js 2](https://vuejs.org/) | Framework de JavaScript para a construção de interfaces de usuário |
 | [Vue CLI](https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md) | Ferramenta para a construção de projetos em Vue.js |
 | [Vue Router](https://router.vuejs.org/) | Biblioteca oficial de roteamento para Vue.js |
-| [Vuex](https://vuex.vuejs.org/) | 	Biblioteca oficial para gerenciamento de estados globais no Vue.js |
+| [Vuex](https://vuex.vuejs.org/) | 	Biblioteca oficial para gerenciamento de estados globais no Vue.js 2 |
 
 ## 💻 Live Preview
 O deploy da aplicação foi feito na plataforma Vercel. Você pode acessá-la [neste link](https://kadflix.vercel.app).
