@@ -39,7 +39,7 @@
         <h1>Filmes policiais</h1>
       </MoviesList>
 
-      <MoviesList genres="27">
+      <MoviesList genres="27" sortBy="vote_count.desc">
         <h1>Filmes de terror</h1>
       </MoviesList>
 
