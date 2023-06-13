@@ -192,11 +192,6 @@ export default {
     },
 
     async fetchMovieTrailer() {
-      // const data = await useFetch(
-      //   `movie/${this.movie_id}/videos?`,
-      //   "&language=en-US"
-      // );
-
       const data = await useFetch({
         path: `/movie/${this.movie_id}/videos`,
         query: { language: "en-US" },
@@ -206,11 +201,6 @@ export default {
     },
 
     async fetchWatchProviders() {
-      // const data = await useFetch(
-      //   `movie/${this.movie_id}/watch/providers?`,
-      //   "&language=en-US"
-      // );
-
       const data = await useFetch({
         path: `movie/${this.movie_id}/watch/providers`,
         query: { language: "en-US" },
