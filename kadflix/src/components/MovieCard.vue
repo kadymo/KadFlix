@@ -40,7 +40,9 @@ export default {
     FavoriteButton,
   },
 
-  props: ["movie"],
+  props: {
+    movie: { required: true },
+  },
 
   mounted() {
     this.ratingsColor();

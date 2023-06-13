@@ -14,7 +14,11 @@
 <script>
 export default {
   name: "Pagination",
-  props: ["currentPage", "totalPages"],
+  props: {
+    currentPage: { type: Number, required: true },
+    totalPages: { type: Number, required: true },
+  },
+
   data() {
     return {
       range: 5,

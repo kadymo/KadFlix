@@ -1,7 +1,9 @@
 <script>
 export default {
   name: "ActorCard",
-  props: ["actor"],
+  props: {
+    actor: { required: true },
+  },
 };
 </script>
 
