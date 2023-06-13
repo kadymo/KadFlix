@@ -38,10 +38,13 @@ export default new Vuex.Store({
 
   actions: {
     async fetchSearchedMovies(context, movie) {
-      const data = await useFetch(
-        "search/movie?",
-        `&language=pt-BR&query=${movie}`
-      );
+      const data = await useFetch({
+        path: "search/movie",
+        query: {
+          language: "pt-BR",
+          query: movie,
+        },
+      });
       context.commit("GET_SEARCHED_MOVIES", data);
     },
   },

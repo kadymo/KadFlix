@@ -116,7 +116,12 @@ export default {
     currencyFilter,
   },
 
-  props: ["movie_id"],
+  props: {
+    movie_id: {
+      type: Number,
+      required: true,
+    },
+  },
 
   data() {
     return {
@@ -174,27 +179,43 @@ export default {
   methods: {
     pageTitle,
     async fetchMovieDetails() {
-      const data = await useFetch(
-        `movie/${this.movie_id}?`,
-        "&language=pt-BR&append_to_response=credits"
-      );
+      const data = await useFetch({
+        path: `movie/${this.movie_id}`,
+        query: {
+          language: "pt-BR",
+          append_to_response: "credits",
+        },
+      });
+
       this.movie = data;
       this.pageTitle(this.movie.title);
     },
 
     async fetchMovieTrailer() {
-      const data = await useFetch(
-        `movie/${this.movie_id}/videos?`,
-        "&language=en-US"
-      );
+      // const data = await useFetch(
+      //   `movie/${this.movie_id}/videos?`,
+      //   "&language=en-US"
+      // );
+
+      const data = await useFetch({
+        path: `/movie/${this.movie_id}/videos`,
+        query: { language: "en-US" },
+      });
+
       this.videos = data.results;
     },
 
     async fetchWatchProviders() {
-      const data = await useFetch(
-        `movie/${this.movie_id}/watch/providers?`,
-        "&language=en-US"
-      );
+      // const data = await useFetch(
+      //   `movie/${this.movie_id}/watch/providers?`,
+      //   "&language=en-US"
+      // );
+
+      const data = await useFetch({
+        path: `movie/${this.movie_id}/watch/providers`,
+        query: { language: "en-US" },
+      });
+
       this.watchProviders = data.results;
     },
   },

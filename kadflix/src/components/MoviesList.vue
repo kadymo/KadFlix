@@ -30,7 +30,11 @@ export default {
     Pagination,
     MovieCard,
   },
-  props: ["fetchFilter"],
+
+  props: {
+    genres: { type: String, default: "", required: false },
+    sortBy: { type: String, default: "", required: false },
+  },
 
   data() {
     return {
@@ -53,10 +57,15 @@ export default {
   methods: {
     ratingsColor,
     async fetchMovies() {
-      const data = await useFetch(
-        "discover/movie?",
-        `&page=${this.currentPage}&language=pt-BR&${this.fetchFilter}`
-      );
+      const data = await useFetch({
+        path: "discover/movie",
+        query: {
+          page: this.currentPage,
+          language: "pt-BR",
+          with_genres: this.genres,
+          sort_by: this.sortBy,
+        },
+      });
       this.movies = data;
       this.ratingsColor();
     },

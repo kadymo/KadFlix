@@ -3,51 +3,51 @@
     <TheHeader />
 
     <main v-once>
-      <MoviesList fetchFilter="sort_by=popularity.desc">
+      <MoviesList sortBy="popularity.desc">
         <h1>Mais populares</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=28,878">
+      <MoviesList genres="28,878">
         <h1>Filmes de ação e ficção científica</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=35">
+      <MoviesList genres="35">
         <h1>Filmes de comédia</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=16,12&sort_by=vote_count.desc">
+      <MoviesList genres="16,12" sortBy="vote_count.desc">
         <h1>Filmes de animação e aventura</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=10751&sort_by=vote_count.desc">
+      <MoviesList genres="10751" sortBy="vote_count.desc">
         <h1>Para assistir com a família</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=10749&sort_by=vote_count.desc">
+      <MoviesList genres="10749" sortBy="vote_count.desc">
         <h1>Filmes de romance</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=18&sort_by=vote_count.desc">
+      <MoviesList genres="18" sortBy="vote_count.desc">
         <h1>Filmes de drama</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=10752&sort_by=vote_count.desc">
+      <MoviesList genres="10752" sortBy="vote_count.desc">
         <h1>Filmes de guerra</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=80">
+      <MoviesList genres="80">
         <h1>Filmes policiais</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=27">
+      <MoviesList genres="27">
         <h1>Filmes de terror</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=53&sort_by=vote_count.desc">
+      <MoviesList genres="53" sortBy="vote_count.desc">
         <h1>Filmes de suspense</h1>
       </MoviesList>
 
-      <MoviesList fetchFilter="with_genres=99&sort_by=vote_count.desc">
+      <MoviesList genres="99" sortBy="vote_count.desc">
         <h1>Documentários</h1>
       </MoviesList>
     </main>

@@ -69,7 +69,9 @@ export default {
     dateFilter,
   },
 
-  props: ["actor_id"],
+  props: {
+    actor_id: { type: Number, required: true },
+  },
 
   data() {
     return {
@@ -82,10 +84,14 @@ export default {
     pageTitle,
 
     async fetchActor() {
-      const data = await useFetch(
-        `person/${this.actor_id}?`,
-        "&language=pt-BR&append_to_response=movie_credits"
-      );
+      const data = await useFetch({
+        path: `person/${this.actor_id}`,
+        query: {
+          language: "pt-BR",
+          append_to_response: "movie_credits",
+        },
+      });
+
       this.actor = data;
       this.ratingsColor();
       this.pageTitle(this.actor.name);
