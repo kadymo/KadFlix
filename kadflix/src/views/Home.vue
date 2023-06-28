@@ -7,11 +7,11 @@
         <h1>Mais populares</h1>
       </MoviesList>
 
-      <MoviesList genres="28,878">
+      <MoviesList genres="28,878" sortBy="popularity.desc">
         <h1>Filmes de ação e ficção científica</h1>
       </MoviesList>
 
-      <MoviesList genres="35">
+      <MoviesList genres="35" sortBy="popularity.desc">
         <h1>Filmes de comédia</h1>
       </MoviesList>
 
@@ -35,7 +35,7 @@
         <h1>Filmes de guerra</h1>
       </MoviesList>
 
-      <MoviesList genres="80">
+      <MoviesList genres="80" sortBy="vote_count.desc">
         <h1>Filmes policiais</h1>
       </MoviesList>
 
