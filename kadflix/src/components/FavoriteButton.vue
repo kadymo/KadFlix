@@ -1,8 +1,8 @@
 <template>
   <span
-    class="favorite"
-    :title="titleFavoriteButton"
     @click.prevent="isFavorited ? DISFAVOR_MOVIE(movie) : FAVORITE_MOVIE(movie)"
+    :title="titleFavoriteButton"
+    class="favorite"
   >
     <svg
       :style="styleFavoriteButton"

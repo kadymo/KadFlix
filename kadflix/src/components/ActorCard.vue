@@ -9,8 +9,8 @@ export default {
 
 <template>
   <router-link
-    tag="li"
     :to="{ name: 'Actor', params: { actor_id: actor.id } }"
+    tag="li"
     class="actor"
   >
     <img

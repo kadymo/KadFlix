@@ -5,9 +5,9 @@
     <main>
       <h1>Filmes favoritos</h1>
       <transition-group
+        v-if="this.$store.state.favorite_movies.length"
         tag="ul"
         name="list"
-        v-if="this.$store.state.favorite_movies.length"
         class="movies"
       >
         <MovieCard

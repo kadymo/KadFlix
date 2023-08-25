@@ -3,9 +3,9 @@
     <div>
       <slot></slot>
       <Pagination
+        @paginate="paginate"
         :currentPage="movies.page"
         :totalPages="movies.total_pages"
-        @paginate="paginate"
       />
     </div>
     <ul ref="movies" class="movies">

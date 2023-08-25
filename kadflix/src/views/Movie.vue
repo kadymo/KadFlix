@@ -1,5 +1,6 @@
 <template>
   <main
+    v-if="movie"
     :style="{
       backgroundImage: `linear-gradient(to bottom, transparent 0%, #1d1d22 60%), url('${$store.state.url_images}original${movie.backdrop_path}')`,
       backgroundRepeat: 'no-repeat',
@@ -7,7 +8,6 @@
       backgroundPosition: 'center',
     }"
     class="container"
-    v-if="movie"
   >
     <div class="movie_poster">
       <img
@@ -19,8 +19,8 @@
         <p>Onde assistir (Brasil)</p>
         <ul>
           <li
-            :title="provider.provider_name"
             v-for="provider in watchProviders.BR?.flatrate"
+            :title="provider.provider_name"
             :key="provider.provider_id"
           >
             <img

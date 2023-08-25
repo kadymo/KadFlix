@@ -1,9 +1,9 @@
 <template>
   <router-link
-    tag="li"
-    class="movie"
     v-if="movie.vote_average > 0"
     :to="{ name: 'Movie', params: { movie_id: movie.id } }"
+    tag="li"
+    class="movie"
   >
     <img
       :src="$store.state.url_images + 'w342/' + movie.poster_path"

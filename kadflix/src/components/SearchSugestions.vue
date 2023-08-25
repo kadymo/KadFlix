@@ -1,11 +1,11 @@
 <template>
   <ul v-if="searched_movies.results?.length" class="movies">
     <router-link
+      v-for="movie in searched_movies.results"
       :to="{ name: 'Movie', params: { movie_id: movie.id } }"
+      :key="movie.id"
       tag="li"
       class="movie"
-      v-for="movie in searched_movies.results"
-      :key="movie.id"
     >
       <img :src="$store.state.url_images + 'w300' + movie.poster_path" alt="" />
 

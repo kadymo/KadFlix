@@ -1,10 +1,10 @@
 <template>
   <ul class="pagination">
     <li
-      :class="{ 'active-page': page === currentPage }"
       v-for="page in pages"
-      :key="page"
       @click="$emit('paginate', page)"
+      :class="{ 'active-page': page === currentPage }"
+      :key="page"
     >
       {{ page }}
     </li>

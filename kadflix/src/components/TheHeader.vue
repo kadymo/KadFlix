@@ -10,9 +10,9 @@
 
     <div class="input-container">
       <input
+        v-model="searched_movie"
         type="text"
         placeholder="Pesquisar filmes"
-        v-model="searched_movie"
       />
       <SearchSugestions />
     </div>
