@@ -3,7 +3,7 @@
     <TheHeader />
 
     <main v-once>
-      <MoviesList path="movie/now_playing">
+      <MoviesList path="/movie/now_playing">
         <h1>Em cartaz</h1>
       </MoviesList>
 

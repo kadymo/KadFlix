@@ -32,7 +32,7 @@ export default {
   },
 
   props: {
-    path: { type: String, default: "discover/movie", required: false },
+    path: { type: String, default: "/discover/movie", required: false },
     genres: { type: String, default: "", required: false },
     sortBy: { type: String, default: "", required: false },
   },

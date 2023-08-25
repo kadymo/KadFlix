@@ -85,7 +85,7 @@ export default {
 
     async fetchActor() {
       const data = await useFetch({
-        path: `person/${this.actor_id}`,
+        path: `/person/${this.actor_id}`,
         query: {
           language: "pt-BR",
           append_to_response: "movie_credits",

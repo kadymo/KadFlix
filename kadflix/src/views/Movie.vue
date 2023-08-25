@@ -180,7 +180,7 @@ export default {
     pageTitle,
     async fetchMovieDetails() {
       const data = await useFetch({
-        path: `movie/${this.movie_id}`,
+        path: `/movie/${this.movie_id}`,
         query: {
           language: "pt-BR",
           append_to_response: "credits",
@@ -202,7 +202,7 @@ export default {
 
     async fetchWatchProviders() {
       const data = await useFetch({
-        path: `movie/${this.movie_id}/watch/providers`,
+        path: `/movie/${this.movie_id}/watch/providers`,
         query: { language: "en-US" },
       });
 
