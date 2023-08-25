@@ -3,6 +3,10 @@
     <TheHeader />
 
     <main v-once>
+      <MoviesList path="movie/now_playing">
+        <h1>Em cartaz</h1>
+      </MoviesList>
+
       <MoviesList sortBy="popularity.desc">
         <h1>Mais populares</h1>
       </MoviesList>

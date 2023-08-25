@@ -32,6 +32,7 @@ export default {
   },
 
   props: {
+    path: { type: String, default: "discover/movie", required: false },
     genres: { type: String, default: "", required: false },
     sortBy: { type: String, default: "", required: false },
   },
@@ -58,7 +59,7 @@ export default {
     ratingsColor,
     async fetchMovies() {
       const data = await useFetch({
-        path: "discover/movie",
+        path: this.path,
         query: {
           page: this.currentPage,
           language: "pt-BR",
