@@ -45,7 +45,11 @@
       </div>
 
       <div class="movie_buttons">
-        <a :href="url_trailer + trailerMovie.key" v-if="trailerMovie">
+        <a
+          v-if="trailerMovie"
+          :href="url_trailer + trailerMovie.key"
+          target="_blank"
+        >
           Assistir trailer
         </a>
         <FavoriteButton :movie="movie" />
