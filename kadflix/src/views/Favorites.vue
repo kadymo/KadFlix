@@ -49,7 +49,7 @@ export default {
 
 main {
   padding-left: 30px;
-  margin-top: 100px;
+  margin-top: 120px;
   @include responsive("small") {
     padding-left: 20px;
     margin-top: 20px;
